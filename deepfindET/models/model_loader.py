@@ -7,7 +7,7 @@ import os
 def load_model(dim_in, Ncl, model_name, trained_weights_path=None, filters = [48, 64, 128], dropout_rate = 0):
 
     # Play with Model to Use
-    assert model_name in ['unet', 'res_unet'], "Invalid model name specified. Use 'unet' or 'res_unet'."
+    assert model_name in ['unet', 'res_unet','attention_unet'], "Invalid model name specified."
 
     if model_name == 'unet':
         net = my_unet_model(dim_in, Ncl, filters, dropout_rate)
