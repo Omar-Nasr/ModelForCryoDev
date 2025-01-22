@@ -1,5 +1,6 @@
 from deepfindET.models.res_unet import my_res_unet_model
 from deepfindET.models.unet import my_unet_model 
+from deepfindET.models.attention_unet import attention_unet
 from deepfindET import settings
 import os
 
@@ -12,6 +13,8 @@ def load_model(dim_in, Ncl, model_name, trained_weights_path=None, filters = [48
         net = my_unet_model(dim_in, Ncl, filters, dropout_rate)
     elif model_name == 'res_unet':
         net = my_res_unet_model(dim_in, Ncl, filters, dropout_rate)
+    elif model_name == "attention_unet":
+        net = attention_unet(dim_in,Ncl,filters,dropout_rate)
     else:
         raise ValueError("Invalid model name specified. Valid options {unet, or res_unet}")
 
